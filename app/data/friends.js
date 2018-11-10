@@ -1,11 +1,38 @@
 var friendsArray = [
   {
-    customerName: "Ahmed",
-    customerEmail: "ahmed@example.com",
-    customerID: "afhaque89",
-    phoneNumber: "000-000-0000"
-  }
+  name: "Darth Vader",
+  photo: "https://starwarsblog.starwars.com/wp-content/uploads/2015/01/EP3_IA_95931-1536x864-904726454708.jpg",
+  scores: [
+    5,
+    5,
+    1,
+    4,
+    5,
+    5,
+    5,
+    5,
+    1,
+    1
+  ]
+  },
+  {
+    name: "Padme Amidala",
+    photo: "https://starwarsblog.starwars.com/wp-content/uploads/2015/01/EP3_IA_95931-1536x864-904726454708.jpg",
+    scores: [
+      2,
+      5,
+      1,
+      4,
+      5,
+      5,
+      2,
+      1,
+      5,
+      5
+    ]
+    }
 ];
 
 
 module.exports = friendsArray;
+

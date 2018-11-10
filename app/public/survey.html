@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Hot Restaurant - Make Reservation</title>
+  <title>Find Friends - Survey</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   
@@ -16,20 +16,7 @@
 
 <body>
 
-  <div class="container">
-    <div class="jumbotron text-center">
-      <h1><span class="fab fa-phoenix-framework"></span> Hot Restaurant</h1>
-      <h3>Make your reservation</h3>
-      <hr>
-      <a href="/view_table">
-        <button class="btn btn-danger btn-lg">
-          <span class="fa fa-eye"></span> View Table</button>
-      </a>
-      <a href="/make_reservation">
-        <button class="btn btn-danger btn-lg">
-          <span class="fa fa-th-list"></span> Make Reservation</button>
-      </a>
-    </div>  <!-- End jumbotron -->
+ 
 
     <!-- The Modal -->
   <div class="modal fade" id="myModal">
@@ -38,13 +25,14 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Reservation</h4>
+          <h4 class="modal-title">Your match!</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
-          Your reservation has been added. Good bye!
+            <h2 id="match-name"></h2>
+            <img id="match-img" src="" alt="Your Match">
         </div>
         
         <!-- Modal footer -->
@@ -61,36 +49,147 @@
         <div class="card">
           <div class="card">
             <div class="card-header">
-              Table Reservation
+              Survey Questions
             </div>
             <div class="card-body">
               <form role="form">
-                
+                  <h2>About You</h2>
                 <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name">
+                  <label for="name"><h3>Name</h3></label>
+                  <input type="text" class="form-control" id="name" required>
                 </div>
 
                 <div class="form-group">
-                  <label for="phone-number">Phone Number</label>
-                  <input type="text" class="form-control" id="phone-number">
+                  <label for="phone-number"><h3>Link to Photo</h3></label>
+                  <input type="text" class="form-control" id="phone-number" required>
                 </div>
 
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="text" class="form-control" id="email">
-                </div>
-
-                <div class="form-group">
-                  <label for="unique-id">Unique ID</label>
-                  <input type="text" class="form-control" id="unique-id">
-                </div>
+                <hr>
+                <h2>Questions</h2>
+                <br>
+                <h3><strong>Question 1</strong></h3>
+                <h4>You prefer carefully planned vacations.</h4>
+                <select class="chosen-select" id="q1">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+                <h3><strong>Question 2</strong></h3>
+                <h4>Generally speaking, you rely more on your gut to know what is right.</h4>
+                <select class="chosen-select" id="q2">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+            
+                <h3><strong>Question 3</strong></h3>
+                <h4>You love being spontaneous</h4>
+                <select class="chosen-select" id="q3">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+            
+                <h3><strong>Question 4</strong></h3>
+                <h4>You love traveling.</h4>
+                <select class="chosen-select" id="q4">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+            
+                <h3><strong>Question 5</strong></h3>
+                <h4>Whenever you face a challenge you like to sit back and analyze.</h4>
+                <select class="chosen-select" id="q5">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+            
+                <h3><strong>Question 6</strong></h3>
+                <h4>You are good at reading people.</h4>
+                <select class="chosen-select" id="q6">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+            
+                <h3><strong>Question 7</strong></h3>
+                <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+                <select class="chosen-select" id="q7">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+                <h3><strong>Question 8</strong></h3>
+                <h4>When you enter a room people immediately turn to you.</h4>
+                <select class="chosen-select" id="q8">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+                <h3><strong>Question 9</strong></h3>
+                <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
+                <select class="chosen-select" id="q9">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+                <h3><strong>Question 10</strong></h3>
+                <h4>You feel more energetic after spending time with a group of people.</h4>
+                <select class="chosen-select" id="q10">
+                  <option value=""></option>
+                  <option value="1">1 (Strongly Disagree)</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5 (Strongly Agree)</option>
+                </select>
+            
+                <br>
+                <br>
 
               </form>
               <br>
 
               <div class="text-left">
-                <button type="submit" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Submit</button>
+                <button type="submit" class="btn btn-danger btn-lg btn-block submit">Submit</button>
               </div>
 
             </div>
@@ -98,7 +197,16 @@
         </div>
       </div>
     </div>
-
+    <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <a href="/data/friends">API Friends List</a> 
+          </div>
+          <div class="col-sm">
+           <a href="https://github.com/wan03/friendfinder">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
     
   </div>
 
@@ -107,3 +215,78 @@
 
 
 </html>
+
+<script type="text/javascript">
+  // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+  // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+  $(".submit").on("click", function(event) {
+    event.preventDefault();
+
+// Form validation
+var isValid;
+
+function validateForm() {
+        let isValid = true;
+        $(".form-group").each(function() {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+
+        $(".chosen-select").each(function() {
+
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        return isValid;
+      }
+
+
+    // Here we grab the form elements
+   if (validateForm()) {
+        // Create an object for the user"s data
+        var userData = {
+          name: $("#name").val(),
+          photo: $("#photo").val(),
+          scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+          ]
+        };
+
+    console.log(userData);
+
+    // This line is the magic. It"s very similar to the standard ajax function we used.
+    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+    // depending on if a tables is available or not.
+
+     // AJAX post the data to the friends API.
+     $.post("/api/friends", userData, function(data) {
+
+// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+$("#match-name").text(data.name);
+$("#match-img").attr("src", data.photo);
+
+// Show the modal with the best match
+$("#myModal").modal("toggle");
+
+});
+} else {
+alert("Please fill out all fields before submitting!");
+}
+});
+
+</script>
