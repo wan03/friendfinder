@@ -1,6 +1,5 @@
 var friendsData = require("../data/friends");
 
-console.log(friendsData)
 
 module.exports = function(app) {
 
@@ -9,31 +8,29 @@ module.exports = function(app) {
   });
 
 
-  app.post("/data/friends", function(req, res) {    
-    var rank = []
-    //TODO create logic that will check the friends and return the most compatible one. 
-    compareFriends(req);
-    console.log(rank);
-    findSmallest(rank);
-    console.log(res);
-    
+  app.post("/data/friends", function(req, res) {   
+    var a = 0;
+    var rank = [];
+    var indexMatch;
+   
+    compareFriends(req, a, rank); 
+    var min = Math.min.apply(null,rank);
+   indexMatch = rank.indexOf(min);
+    res.json(friendsData[indexMatch]);
+    friendsData.push(req.body);    
   });  
   
 };
 
-function compareFriends (req) {
-friendsData.forEach(function(value) {
-  for (i = 0; i < friendsData.scores.length; i++){      
-  let a = 0;      
-  let b = Math.abs(friendsData.scores[i] - req.Userdata.scores)
+function compareFriends (req, a, rank) {
+friendsData.forEach(function(value, index) {
+  a = 0;
+  for (i = 0; i < friendsData[index].scores.length; i++){            
+  let b = Math.abs(friendsData[index].scores[i] - req.body.scores[i])
   a+=b
   }
-  rank.push(a);  
+  rank.push(a);
 });
 }
 
 
-function findSmallest(rank) {
-  var min = Math.min.apply(null,rank);
-   return res.json(friendsData[indexOf(min)]);
-}

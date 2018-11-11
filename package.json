@@ -20,5 +20,6 @@
   "homepage": "https://github.com/wan03/friendfinder#readme",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  } 
+  
 }

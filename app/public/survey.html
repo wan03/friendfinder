@@ -9,6 +9,9 @@
   
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <style>
+  div img { max-width: 100%; }
+  </style>
 
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -60,8 +63,8 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="phone-number"><h3>Link to Photo</h3></label>
-                  <input type="text" class="form-control" id="phone-number" required>
+                  <label for="photo-link"><h3>Link to Photo</h3></label>
+                  <input type="text" class="form-control" id="photo-link" required>
                 </div>
 
                 <hr>
@@ -150,7 +153,7 @@
                 </select>
             
                 <h3><strong>Question 8</strong></h3>
-                <h4>When you enter a room people immediately turn to you.</h4>
+                <h4>When you enter a room, people immediately turn to you.</h4>
                 <select class="chosen-select" id="q8">
                   <option value=""></option>
                   <option value="1">1 (Strongly Disagree)</option>
@@ -224,13 +227,14 @@
 
   $(".submit").on("click", function(event) {
     event.preventDefault();
+  
 
 // Form validation
-var isValid;
+
 
 function validateForm() {
         let isValid = true;
-        $(".form-group").each(function() {
+        $(".form-control").each(function() {
           if ($(this).val() === "") {
             isValid = false;
           }
@@ -251,7 +255,7 @@ function validateForm() {
         // Create an object for the user"s data
         var userData = {
           name: $("#name").val(),
-          photo: $("#photo").val(),
+          photo: $("#photo-link").val(),
           scores: [
             $("#q1").val(),
             $("#q2").val(),
@@ -266,22 +270,23 @@ function validateForm() {
           ]
         };
 
-    console.log(userData);
-
-    // This line is the magic. It"s very similar to the standard ajax function we used.
-    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-    // depending on if a tables is available or not.
-
-     // AJAX post the data to the friends API.
-     $.post("/api/friends", userData, function(data) {
-
-// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+     $.post("/data/friends", userData, function(data) {
+       console.log("here");
 $("#match-name").text(data.name);
 $("#match-img").attr("src", data.photo);
 
-// Show the modal with the best match
 $("#myModal").modal("toggle");
+$(".form-control").val("");
+$("#q1").val("")
+$("#q2").val("")
+$("#q3").val("")
+$("#q4").val("")
+$("#q5").val("")
+$("#q6").val("")
+$("#q7").val("")
+$("#q8").val("")
+$("#q9").val("")
+$("#q10").val("")
 
 });
 } else {
